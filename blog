@@ -7,3 +7,47 @@ group listen using their spotify players.
 [2020-10-31 22:43] find the jerk comic book with fimlm stills
 
 [2020-10-31 23:01] OTP is kubernetes but y'all aren't ready for that conversation
+
+[2020-11-09 12:19] # The platform that writes itself
+PROGRAMS ARE MADE OF DATA AND INSTRUCTIONS
+
+## The high level design phase
+
+No thought of code, infrastructure, or any particular technology whatsoever. Realm of pure thought.
+
+### Find all the data
+  - datastorm: list every piece of information relevant to your domain
+
+### Find everything that happens
+  - eventstorm: list all the events
+
+### Find the causality
+  - put events in order
+
+### Add the data
+  - label the events with their data dependencies
+
+### Find the aggregates
+  - look for "fellow travelers" in the data labels. What pieces of data are together a lot of the
+    time?
+
+
+##
+## The Type Module
+
+### Steps
+- find all the state in your domain
+- create aggregate types
+- define the transformations on aggregates
+  - don't implement yet, just define!
+
+### Tooling
+- Run dialyzer for internal consistency
+- No unit tests, not implementing! If there's something that seems like it needs a unit test,
+  that's a smell at this point. Just let all transformations be the identity.
+
+
+## The Instance Server
+- instantiate aggregates in processes
+  - data are "aggregates in cryosleep"
+- define the incoming messages
